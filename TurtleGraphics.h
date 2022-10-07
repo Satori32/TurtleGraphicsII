@@ -90,9 +90,7 @@ public:
 		if (X >= S.Width()) { return false; }
 		if (Y >= S.Height()) { return false; }
 
-		auto&& A = S.Index(X, Y);
-		if (std::get<0>(A)) { std::get<1>(A) = C; }
-		return std::get<0>(A);
+		return S.SetPixel(X,Y,C);
 	}
 
 	bool SetPixel(double X, double Y) {
@@ -102,12 +100,10 @@ public:
 		if (Y < 0) { return false; }
 		if (X >= S.Width()) { return false; }
 		if (Y >= S.Height()) { return false; }
-		double XA = !RightIsForward ? Width()- X: X;
+		double XA = (!RightIsForward) ? Width() - X : X;
 		double YA = TopIsUp ? Height()-Y : Y;
 
-		auto&& A = S.Index(XA,YA);
-		if (std::get<0>(A)) { std::get<1>(A) = C; }
-		return std::get<0>(A);
+		return S.SetPixel(XA,YA,C);
 	}  
 	std::size_t Width() {
 		return S.Width();

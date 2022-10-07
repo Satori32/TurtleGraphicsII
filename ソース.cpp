@@ -45,6 +45,7 @@ int main() {
 	TG.Move(8);
 	Show(TG);
 /**/
+	HideCursor();
 	ClearShow();	
 	Locate(0, 0);
 	TG.SetOrigin(39, 9);
@@ -52,6 +53,7 @@ int main() {
 	TG.Move(38);
 	Show(TG);
 	double L = 8;
+	//TG.SetTopIsUp(false);
 	TG.SetPoint(0, 0);
 	for (std::size_t i = 0; i < 360; i++) {
 		ClearShow();
@@ -62,7 +64,7 @@ int main() {
 		TG.SetPoint(0, 0);
 
 	}
-
+	ShowCursor();
 	return 0;
 
 }

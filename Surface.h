@@ -21,6 +21,12 @@ public:
 
 		return true;
 	}
+	bool SetPixel(std::size_t X, std::size_t Y, const Value& V) {
+		if (X >= W) { return false; }
+		if (Y >= H) { return false; }
+		D[Y][X] = V;
+		return 0;
+	}
 
 	std::size_t Width() const{
 		return W;
